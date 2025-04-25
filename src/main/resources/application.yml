@@ -1,0 +1,26 @@
+server.port: 8084
+
+services.articles.uri.internal: http://gaia-x.identity.local:8081/demo/api
+spring.mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
+
+springfox:
+  documentation:
+    swaggerUi:
+      baseUrl: /api/articles
+    openApi:
+      v3:
+        path: /api/articles/v3/api-docs
+    swagger:
+      v2:
+        path: /api/articles/v2/api-docs
+---
+spring.config.activate.on-profile: mesh
+server.port: 80
+server.shutdown: graceful
+spring.lifecycle.timeout-per-shutdown-phase: 10s
+management.endpoint.health.probes.enabled: true
+management.endpoints.web.exposure.include: "*"
+management.server.port: 4004
+
+services.articles.uri.internal: http://demo/demo/api
+

@@ -1,0 +1,13 @@
+./target
+target
+/target
+./.idea
+.idea
+/.idea
+/*.iml
+deploy/docker/output/*
+
+# Eclipse
+.classpath
+.project
+.settings/
